@@ -72,4 +72,4 @@
         
         sudo systemctl restart nginx
         
-10.Open http://public ip of node-2 in your browser.
+10.Open http://(public ip of node-2) in your browser.
