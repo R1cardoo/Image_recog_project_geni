@@ -1,4 +1,5 @@
 # Image_recog_project_geni
+## Install instructions
 1.Clone the project from Github
 2.Use the rspec file "Image_recog_rspec.xml" to reserve the resource on GENI
 3.Once the slice is ready, find the routable ip by clicking node-1 and node-2, in my case 192.171.20.106 for node-1 and 192.171.20.107 for node-2
