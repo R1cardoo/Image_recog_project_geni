@@ -16,7 +16,7 @@
                 returnData.append('file', document.getElementById('image').files[0]);
                 $.ajax({
                     method: 'POST',
-                    url:"http://localhost:5000/predict",
+                    url:"http://192.171.20.106:5000/predict",
                     contentType: false,
                     processData: false,
                     data: returnData,
