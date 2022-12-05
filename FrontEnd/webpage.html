@@ -13,7 +13,7 @@
             }
             function predict(){
                 const d = new Date();
-                let ms = d.getMilliseconds();
+                let ms = window.performance.now();
                 var returnData = new FormData();
                 returnData.append('file', document.getElementById('image').files[0]);
                 $.ajax({
@@ -23,10 +23,10 @@
                     processData: false,
                     data: returnData,
                     success: function(data) {
-                        console.log("inside");
                         document.getElementById("result").innerHTML = data;
-                        let ms1 = d.getMilliseconds()-ms;
-                        console.log(ms1);
+                        let ms1 = window.performance.now()-ms;
+                        console.log("nanosecond RTT: "+ms1);
+                        //console.log(ms1);
                     }
                 })
                 
