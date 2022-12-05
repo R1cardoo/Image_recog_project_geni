@@ -12,6 +12,8 @@
                 }
             }
             function predict(){
+                const d = new Date();
+                let ms = d.getMilliseconds();
                 var returnData = new FormData();
                 returnData.append('file', document.getElementById('image').files[0]);
                 $.ajax({
@@ -23,8 +25,11 @@
                     success: function(data) {
                         console.log("inside");
                         document.getElementById("result").innerHTML = data;
+                        let ms1 = d.getMilliseconds()-ms;
+                        console.log(ms1);
                     }
                 })
+                
             }
         </script>
     </head>
