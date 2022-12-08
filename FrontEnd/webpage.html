@@ -47,8 +47,7 @@
                         processData: false,
                         data: returnData,
                         success: function(data) {
-                        total=total+(window.performance.now()-ms);
-                        ms=window.performance.now();
+                        total=window.performance.now()-ms;
                         document.getElementById("result").innerHTML = data;
                         //console.log(ms1);
                     }
