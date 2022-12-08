@@ -31,6 +31,29 @@
                 })
                 
             }
+            function test(){
+                let size=document.getElementById('image').files[0].size;
+                size=size/10000;
+                let ms = window.performance.now();
+                for(let i=0;i<100;i++){
+                    const d = new Date();
+                    var returnData = new FormData();
+                    returnData.append('file', document.getElementById('image').files[0]);
+                    $.ajax({
+                        method: 'POST',
+                        url:"http://192.171.20.106:5000/predict",
+                        contentType: false,
+                        processData: false,
+                        data: returnData,
+                        success: function(data) {
+                        document.getElementById("result").innerHTML = data;
+                        //console.log(ms1);
+                    }
+                })
+                }
+                let ms1=(windows.performance.now()-ms)/1000000000;
+                console.log("Average throughput: "+(size/ms1)+"MB/s");
+            }
         </script>
     </head>
 <body>
@@ -41,6 +64,7 @@
     <input style="display: block" type="file" id="image"/>
 </div>
     <button onclick="predict()">Predict</button>
+    <button onclick="test()">test 100 times</button>
     <div id="result" ></div>
 </body>
 </html>
