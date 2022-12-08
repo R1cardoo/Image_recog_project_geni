@@ -35,6 +35,7 @@
                 let size=document.getElementById('image').files[0].size;
                 size=size/10000;
                 let ms = window.performance.now();
+                let total=0;
                 for(let i=0;i<100;i++){
                     const d = new Date();
                     var returnData = new FormData();
@@ -46,12 +47,14 @@
                         processData: false,
                         data: returnData,
                         success: function(data) {
+                        total=total+(window.performance.now()-ms);
+                        ms=window.performance.now();
                         document.getElementById("result").innerHTML = data;
                         //console.log(ms1);
                     }
                 })
                 }
-                let ms1=(window.performance.now()-ms)/1000000000;
+                let ms1=total/1000000000;
                 console.log("Average throughput: "+(size/ms1)+"MB/s");
             }
         </script>
