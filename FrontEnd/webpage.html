@@ -51,7 +51,7 @@
                     }
                 })
                 }
-                let ms1=(windows.performance.now()-ms)/1000000000;
+                let ms1=(window.performance.now()-ms)/1000000000;
                 console.log("Average throughput: "+(size/ms1)+"MB/s");
             }
         </script>
